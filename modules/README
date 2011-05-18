@@ -1,0 +1,2 @@
+This isn't commonly used, but if your site incldues git submodules without
+customizations, you can put them in here and keep things easy to update.

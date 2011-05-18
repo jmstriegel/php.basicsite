@@ -1,0 +1,22 @@
+<FilesMatch "\.(htaccess|inc|htpasswd|ini|phps|fla|psd|log|sh)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+##TODO
+##Adjust your paths below if not hosted in the root web directory
+##Save as .htaccess
+
+## Prevent hotlinking on user uploads
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?example\.com/ [NC]
+RewriteCond %{REQUEST_URI} ^/assets/uploads/
+RewriteRule .* - [F,L]
+
+
+RewriteCond %{REQUEST_URI} ^/includes/ [OR]
+RewriteCond %{REQUEST_URI} ^/lib/ [OR]
+RewriteCond %{REQUEST_URI} ^/sql/ [OR]
+RewriteCond %{REQUEST_URI} ^/daemon/
+RewriteRule .* - [F,L]

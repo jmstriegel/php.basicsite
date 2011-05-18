@@ -1,0 +1,2 @@
+Any non-web scripts should go here. Use .htaccess to restrict remote execution
+of this entire directory.
